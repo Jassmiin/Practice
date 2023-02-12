@@ -11,11 +11,10 @@ import org.bukkit.inventory.ItemStack;
 import me.jass.practice.datatypes.GUI;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Extra;
-import me.jass.practice.utils.Text;
 
 public class ExtraEditorGUI extends DuelGUI {
 	public ExtraEditorGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.EXTRA_EDITOR, null), centerTitle(Text.color("&8Extra Editor")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.EXTRA_EDITOR, null), centerTitle("&8Extra Editor"));
 		setGUI(gui, player, GUI.EXTRA_EDITOR);
 	}
 

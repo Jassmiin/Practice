@@ -17,7 +17,7 @@ import me.jass.practice.utils.Text;
 
 public class PlayersGUI extends DuelGUI {
 	public PlayersGUI(final Player player, final GUI type) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(type, null), centerTitle(Text.color("&8" + WordUtils.capitalize(type.toString().toLowerCase().replaceAll("_", " ")))));
+		final Inventory gui = Bukkit.createInventory(null, getSize(type, null), centerTitle("&8" + WordUtils.capitalize(type.toString().toLowerCase().replaceAll("_", " "))));
 		setGUI(gui, player, type);
 	}
 

@@ -10,11 +10,10 @@ import org.bukkit.inventory.ItemStack;
 
 import me.jass.practice.datatypes.GUI;
 import me.jass.practice.duels.Selection;
-import me.jass.practice.utils.Text;
 
 public class LayoutEditorGUI extends DuelGUI {
 	public LayoutEditorGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.LAYOUT_EDITOR, null), centerTitle(Text.color("&8Editor")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.LAYOUT_EDITOR, null), centerTitle("&8Editor"));
 		setGUI(gui, player, GUI.LAYOUT_EDITOR);
 	}
 

@@ -9,11 +9,10 @@ import org.bukkit.inventory.ItemStack;
 import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.RoundType;
 import me.jass.practice.duels.Selection;
-import me.jass.practice.utils.Text;
 
 public class ChallengeGUI extends DuelGUI {
 	public ChallengeGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.CHALLENGE, null), centerTitle(Text.color("&8Challenge")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.CHALLENGE, null), centerTitle("&8Challenge"));
 		setGUI(gui, player, GUI.CHALLENGE);
 	}
 
@@ -21,9 +20,9 @@ public class ChallengeGUI extends DuelGUI {
 	public void loadGUI() {
 		fillBorders();
 
-		inventory.setItem(11, createItem(Material.DIAMOND_SWORD, Text.color("#aquaSingle Match"), 1));
-		inventory.setItem(13, createItem(Material.IRON_SWORD, Text.color("&fBest of 3"), 1));
-		inventory.setItem(15, createItem(Material.GOLDEN_SWORD, Text.color("#yellowFirst to 10"), 1));
+		inventory.setItem(11, createItem(Material.DIAMOND_SWORD, "#aquaSingle Match", 1));
+		inventory.setItem(13, createItem(Material.IRON_SWORD, "&fBest of 3", 1));
+		inventory.setItem(15, createItem(Material.GOLDEN_SWORD, "#yellowFirst to 10", 1));
 		hideFlags();
 	}
 

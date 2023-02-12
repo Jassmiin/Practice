@@ -7,15 +7,13 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import me.jass.practice.datatypes.GUI;
-import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.Goal;
 import me.jass.practice.datatypes.RoundType;
 import me.jass.practice.duels.Selection;
-import me.jass.practice.utils.Text;
 
 public class RoundsGUI extends DuelGUI {
 	public RoundsGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.ROUNDS, null), centerTitle(Text.color("&8Rounds")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.ROUNDS, null), centerTitle("&8Rounds"));
 		setGUI(gui, player, GUI.ROUNDS);
 	}
 
@@ -23,9 +21,9 @@ public class RoundsGUI extends DuelGUI {
 	public void loadGUI() {
 		fillBorders();
 
-		inventory.setItem(11, createItem(Material.GOLD_INGOT, Text.color("#yellowFirst to"), 1));
-		inventory.setItem(13, createItem(Material.NETHERITE_INGOT, Text.color("&8Never Ending"), 1));
-		inventory.setItem(15, createItem(Material.IRON_INGOT, Text.color("&fBest of"), 1));
+		inventory.setItem(11, createItem(Material.GOLD_INGOT, "#yellowFirst to", 1));
+		inventory.setItem(13, createItem(Material.NETHERITE_INGOT, "&8Never Ending", 1));
+		inventory.setItem(15, createItem(Material.IRON_INGOT, "&fBest of", 1));
 
 		inventory.setItem(2, arrowUp());
 		inventory.setItem(20, arrowDown());

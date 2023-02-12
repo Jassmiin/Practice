@@ -8,7 +8,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import me.jass.practice.datatypes.GUI;
-import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.ScoreType;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Kit;
@@ -16,7 +15,7 @@ import me.jass.practice.utils.Text;
 
 public class ScoresGUI extends DuelGUI {
 	public ScoresGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.SCORES, null), centerTitle(Text.color("&8Score")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.SCORES, null), centerTitle("&8Score"));
 		setGUI(gui, player, GUI.SCORES);
 	}
 
@@ -27,7 +26,7 @@ public class ScoresGUI extends DuelGUI {
 			final ItemStack item = inventory.getItem(i);
 			final int slot = i;
 
-			if (item == null || isBorder(item) || item.getType() == Material.PLAYER_HEAD) {
+			if (item == null || isBorder(item) || item.getType() == Material.COMPASS || item.getType() == Material.RECOVERY_COMPASS) {
 				continue;
 			}
 

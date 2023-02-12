@@ -15,11 +15,10 @@ import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.QueueType;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Kit;
-import me.jass.practice.utils.Text;
 
 public class KitEditorGUI extends DuelGUI {
 	public KitEditorGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.KIT_EDITOR, null), centerTitle(Text.color("&8Kit Editor")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.KIT_EDITOR, null), centerTitle("&8Kit Editor"));
 		setGUI(gui, player, GUI.KIT_EDITOR);
 	}
 

@@ -10,11 +10,10 @@ import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.Team;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Arena;
-import me.jass.practice.utils.Text;
 
 public class ArenaEditorGUI extends DuelGUI {
 	public ArenaEditorGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.ARENA_EDITOR, null), centerTitle(Text.color("&8Arena Editor")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.ARENA_EDITOR, null), centerTitle("&8Arena Editor"));
 		setGUI(gui, player, GUI.ARENA_EDITOR);
 	}
 

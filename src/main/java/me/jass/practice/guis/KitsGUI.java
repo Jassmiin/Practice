@@ -35,7 +35,7 @@ public class KitsGUI extends DuelGUI {
 			size = GUI.COMPETITIVE_KITS;
 		}
 
-		final Inventory gui = Bukkit.createInventory(null, getSize(size, null), centerTitle(Text.color("&8Kits")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(size, null), centerTitle("&8Kits"));
 		setGUI(gui, player, GUI.KITS);
 	}
 

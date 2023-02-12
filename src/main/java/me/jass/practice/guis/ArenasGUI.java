@@ -11,7 +11,6 @@ import me.jass.practice.datatypes.Goal;
 import me.jass.practice.datatypes.QueueType;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Arena;
-import me.jass.practice.utils.Text;
 
 public class ArenasGUI extends DuelGUI {
 	private final QueueType type;
@@ -29,7 +28,7 @@ public class ArenasGUI extends DuelGUI {
 			size = GUI.COMPETITIVE_ARENAS;
 		}
 
-		final Inventory gui = Bukkit.createInventory(null, getSize(size, null), centerTitle(Text.color("&8Arenas")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(size, null), centerTitle("&8Arenas"));
 		setGUI(gui, player, GUI.ARENAS);
 	}
 

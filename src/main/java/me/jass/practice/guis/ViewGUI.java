@@ -8,12 +8,11 @@ import org.bukkit.inventory.ItemStack;
 import me.jass.practice.PracticeAPI;
 import me.jass.practice.datatypes.GUI;
 import me.jass.practice.duels.Selection;
-import me.jass.practice.utils.Text;
 
 public class ViewGUI extends DuelGUI {
 	public ViewGUI(final Player player) {
 		final Selection selection = guiManager.getSelection(player);
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.VIEWS, null), centerTitle(Text.color("&8" + selection.getPlayer().getName() + "'s inventory")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.VIEWS, null), centerTitle("&8" + selection.getPlayer().getName() + "'s inventory"));
 		setGUI(gui, player, GUI.VIEWS);
 	}
 

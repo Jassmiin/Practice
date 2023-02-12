@@ -7,11 +7,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import me.jass.practice.datatypes.GUI;
-import me.jass.practice.utils.Text;
 
 public class SettingsGUI extends DuelGUI {
 	public SettingsGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.SETTINGS, null), centerTitle(Text.color("&8Settings")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.SETTINGS, null), centerTitle("&8Settings"));
 		setGUI(gui, player, GUI.SETTINGS);
 	}
 
@@ -19,18 +18,18 @@ public class SettingsGUI extends DuelGUI {
 		final String duelRequests;
 
 		if (menuManager.hasDuelRequests(player)) {
-			inventory.setItem(2, createItem(Material.LIME_STAINED_GLASS_PANE, Text.color("#limeEnabled"), 1));
-			inventory.setItem(20, createItem(Material.LIME_STAINED_GLASS_PANE, Text.color("#limeEnabled"), 1));
+			inventory.setItem(2, createItem(Material.LIME_STAINED_GLASS_PANE, "#limeEnabled", 1));
+			inventory.setItem(20, createItem(Material.LIME_STAINED_GLASS_PANE, "#limeEnabled", 1));
 
-			duelRequests = Text.color("#limeYes");
+			duelRequests = "#limeYes";
 		} else {
-			inventory.setItem(2, createItem(Material.RED_STAINED_GLASS_PANE, Text.color("#redDisabled"), 1));
-			inventory.setItem(20, createItem(Material.RED_STAINED_GLASS_PANE, Text.color("#redDisabled"), 1));
+			inventory.setItem(2, createItem(Material.RED_STAINED_GLASS_PANE, "#redDisabled", 1));
+			inventory.setItem(20, createItem(Material.RED_STAINED_GLASS_PANE, "#redDisabled", 1));
 
-			duelRequests = Text.color("#redNo");
+			duelRequests = "#redNo";
 		}
 
-		inventory.setItem(11, createItem(Material.BELL, Text.color("#yellowDuel Requests"), 1, Text.color("&7Enabled: ") + duelRequests));
+		inventory.setItem(11, createItem(Material.BELL, "#yellowDuel Requests", 1, "&7Enabled: " + duelRequests));
 
 	}
 
@@ -38,18 +37,18 @@ public class SettingsGUI extends DuelGUI {
 		final String duelChat;
 
 		if (menuManager.hasDuelChat(player)) {
-			inventory.setItem(6, createItem(Material.LIME_STAINED_GLASS_PANE, Text.color("#limeEnabled"), 1));
-			inventory.setItem(24, createItem(Material.LIME_STAINED_GLASS_PANE, Text.color("#limeEnabled"), 1));
+			inventory.setItem(6, createItem(Material.LIME_STAINED_GLASS_PANE, "#limeEnabled", 1));
+			inventory.setItem(24, createItem(Material.LIME_STAINED_GLASS_PANE, "#limeEnabled", 1));
 
-			duelChat = Text.color("#limeYes");
+			duelChat = "#limeYes";
 		} else {
-			inventory.setItem(6, createItem(Material.RED_STAINED_GLASS_PANE, Text.color("#redDisabled"), 1));
-			inventory.setItem(24, createItem(Material.RED_STAINED_GLASS_PANE, Text.color("#redDisabled"), 1));
+			inventory.setItem(6, createItem(Material.RED_STAINED_GLASS_PANE, "#redDisabled", 1));
+			inventory.setItem(24, createItem(Material.RED_STAINED_GLASS_PANE, "#redDisabled", 1));
 
-			duelChat = Text.color("#redNo");
+			duelChat = "#redNo";
 		}
 
-		inventory.setItem(15, createItem(Material.PAPER, Text.color("&fDuel Chat"), 1, Text.color("&7Enabled: ") + duelChat));
+		inventory.setItem(15, createItem(Material.PAPER, "&fDuel Chat", 1, "&7Enabled: " + duelChat));
 	}
 
 	public void toggle(final Material material) {
@@ -71,7 +70,7 @@ public class SettingsGUI extends DuelGUI {
 		loadDuelRequests();
 		loadDuelChat();
 
-		inventory.setItem(13, createItem(Material.BEACON, Text.color("#aquaPing Range"), 1));
+		inventory.setItem(13, createItem(Material.BEACON, "#aquaPing Range", 1));
 
 		inventory.setItem(4, arrowUp());
 		inventory.setItem(22, arrowDown());

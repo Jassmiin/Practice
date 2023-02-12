@@ -12,11 +12,10 @@ import me.jass.practice.datatypes.Goal;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Extra;
 import me.jass.practice.files.Kit;
-import me.jass.practice.utils.Text;
 
 public class ExtrasGUI extends DuelGUI {
 	public ExtrasGUI(final Player player) {
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.EXTRAS, null), centerTitle(Text.color("&8Extras")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.EXTRAS, null), centerTitle("&8Extras"));
 		setGUI(gui, player, GUI.EXTRAS);
 	}
 

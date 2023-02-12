@@ -11,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import me.jass.practice.datatypes.GUI;
-import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.Goal;
 import me.jass.practice.datatypes.QueueType;
 import me.jass.practice.datatypes.Queues;
@@ -24,7 +23,7 @@ public class QueuesGUI extends DuelGUI {
 
 	public QueuesGUI(final Player player, final QueueType type) {
 		this.type = type;
-		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.QUEUES, null), centerTitle(Text.color("&8Queues")));
+		final Inventory gui = Bukkit.createInventory(null, getSize(GUI.QUEUES, null), centerTitle("&8Queues"));
 		setGUI(gui, player, GUI.QUEUES);
 	}
 

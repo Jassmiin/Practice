@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -16,7 +15,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 
 import lombok.Getter;
 import me.jass.practice.PracticeAPI;
@@ -432,19 +430,19 @@ public abstract class DuelGUI {
 	}
 
 	public ItemStack arrowUp() {
-		final ItemStack head = createItem(Material.PLAYER_HEAD, Text.color("&7More"), 1);
-		final SkullMeta meta = (SkullMeta) head.getItemMeta();
-		meta.setOwningPlayer(Bukkit.getOfflinePlayer("MHF_arrowup"));
-		head.setItemMeta(meta);
-		return head;
+		//		final ItemStack head = createItem(Material.PLAYER_HEAD, Text.color("&7More"), 1);
+		//		final SkullMeta meta = (SkullMeta) head.getItemMeta();
+		//		meta.setOwningPlayer(Bukkit.getOfflinePlayer("MHF_arrowup"));
+		//		head.setItemMeta(meta);
+		return createItem(Material.COMPASS, Text.color("&7More"), 1);
 	}
 
 	public ItemStack arrowDown() {
-		final ItemStack head = createItem(Material.PLAYER_HEAD, Text.color("&7Less"), 1);
-		final SkullMeta meta = (SkullMeta) head.getItemMeta();
-		meta.setOwningPlayer(Bukkit.getOfflinePlayer("MHF_arrowdown"));
-		head.setItemMeta(meta);
-		return head;
+		//		final ItemStack head = createItem(Material.PLAYER_HEAD, Text.color("&7Less"), 1);
+		//		final SkullMeta meta = (SkullMeta) head.getItemMeta();
+		//		meta.setOwningPlayer(Bukkit.getOfflinePlayer("MHF_arrowdown"));
+		//		head.setItemMeta(meta);
+		return createItem(Material.RECOVERY_COMPASS, Text.color("&7Less"), 1);
 	}
 
 	public void ding() {
