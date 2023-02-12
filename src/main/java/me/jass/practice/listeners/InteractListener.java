@@ -100,7 +100,6 @@ public class InteractListener implements Listener {
 
 		if (event.getMaterial() == Material.END_CRYSTAL && event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getClickedBlock().getType() == Material.OBSIDIAN) {
 			final Location location = event.getClickedBlock().getRelative(BlockFace.UP).getLocation().clone();
-			location.add(0.5, 0, 0.5);
 			PracticeAPI.INSTANCE.getDuelManager().addExplosive(location, duel);
 		}
 

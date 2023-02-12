@@ -7,7 +7,6 @@ import org.bukkit.event.block.BlockExplodeEvent;
 
 import me.jass.practice.PracticeAPI;
 import me.jass.practice.duels.Duel;
-import me.jass.practice.utils.Text;
 
 public class BlockExplodeListener implements Listener {
 	@EventHandler
@@ -20,8 +19,6 @@ public class BlockExplodeListener implements Listener {
 			}
 			return;
 		}
-
-		Text.alert("add world damage");
 
 		for (final Block block : event.blockList()) {
 			duel.addWorldDamage(block.getState());
