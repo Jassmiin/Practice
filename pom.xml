@@ -73,10 +73,10 @@
 	<repository>
   		<id>aikar</id>
   		<url>https://repo.aikar.co/content/groups/aikar/</url>
-    </repository>
-    <repository>
+    	</repository>
+    	<repository>
    		<id>papermc</id>
-    	<url>https://repo.papermc.io/repository/maven-public/</url>
+    		<url>https://repo.papermc.io/repository/maven-public/</url>
 	</repository>
   </repositories>
   <dependencies>
