@@ -100,6 +100,10 @@ public class Duelist {
 		}
 	}
 
+	public List<Duelist> getTeamMembers() {
+		return duel.getTeam(team);
+	}
+
 	public int getTeamScore() {
 		return duel.getScore(team);
 	}

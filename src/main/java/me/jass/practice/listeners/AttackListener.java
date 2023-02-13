@@ -37,6 +37,13 @@ public class AttackListener implements Listener {
 			return;
 		}
 
+		if (duelist.getTeamMembers().contains(new Duelist((Player) event.getEntity(), null, null, null, null))) {
+			if (!PracticeAPI.INSTANCE.getConfigManager().isFriendlyFire()) {
+				event.setCancelled(true);
+				return;
+			}
+		}
+
 		if (event.getDamage() > 0) {
 			if (duelist.getScoreType() == ScoreType.BOXING) {
 				if (System.currentTimeMillis() - duelist.getLastHit() >= 550) {
