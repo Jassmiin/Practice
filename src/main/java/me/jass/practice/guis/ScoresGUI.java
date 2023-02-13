@@ -11,7 +11,6 @@ import me.jass.practice.datatypes.GUI;
 import me.jass.practice.datatypes.ScoreType;
 import me.jass.practice.duels.Selection;
 import me.jass.practice.files.Kit;
-import me.jass.practice.utils.Text;
 
 public class ScoresGUI extends DuelGUI {
 	public ScoresGUI(final Player player) {
@@ -26,7 +25,7 @@ public class ScoresGUI extends DuelGUI {
 			final ItemStack item = inventory.getItem(i);
 			final int slot = i;
 
-			if (item == null || isBorder(item) || item.getType() == Material.COMPASS || item.getType() == Material.RECOVERY_COMPASS) {
+			if (item == null || isBorder(item) || item.getType() == Material.COMPASS || item.getType() == Material.RECOVERY_COMPASS || item.getType() == Material.GOLD_INGOT) {
 				continue;
 			}
 
@@ -86,27 +85,20 @@ public class ScoresGUI extends DuelGUI {
 	public void loadGUI() {
 		fillBorders();
 
-		inventory.setItem(10, createItem(Material.WOODEN_SWORD, Text.color("#brownBoxing"), 1));
-		inventory.setItem(11, createItem(Material.TROPICAL_FISH, Text.color("#aquaFishing"), 1));
-		inventory.setItem(12, createItem(Material.BRICK_STAIRS, Text.color("&cBridge"), 1));
-		inventory.setItem(13, createItem(Material.REDSTONE, Text.color("#redKills"), 1));
-		inventory.setItem(14, createItem(Material.SKELETON_SKULL, Text.color("&7Deaths"), 1));
-		inventory.setItem(16, createItem(Material.BARRIER, Text.color("#redNone"), 1));
+		inventory.setItem(9, createItem(Material.WOODEN_SWORD, "#brownBoxing", 1));
+		inventory.setItem(10, createItem(Material.TROPICAL_FISH, "#aquaFishing", 1));
+		inventory.setItem(11, createItem(Material.BRICK_STAIRS, "&cBridge", 1));
+		inventory.setItem(12, createItem(Material.REDSTONE, "#redKills", 1));
+		inventory.setItem(13, createItem(Material.SKELETON_SKULL, "&7Deaths", 1));
+		inventory.setItem(14, createItem(Material.BARRIER, "#redNone", 1));
 
-		inventory.setItem(1, arrowUp());
-		inventory.setItem(19, arrowDown());
-		inventory.setItem(2, arrowUp());
-		inventory.setItem(20, arrowDown());
-		inventory.setItem(3, arrowUp());
-		inventory.setItem(21, arrowDown());
-		inventory.setItem(4, arrowUp());
-		inventory.setItem(22, arrowDown());
-		inventory.setItem(5, arrowUp());
-		inventory.setItem(23, arrowDown());
+		inventory.setItem(7, arrowUp());
+		inventory.setItem(16, createItem(Material.GOLD_INGOT, "#yellowRequired Score", guiManager.getSelection(player).getKit().getRequiredScore()));
+		inventory.setItem(25, arrowDown());
 
 		inventory.setItem(36, createItem(Material.ARROW, "&7Item Drops", 1));
 		inventory.setItem(37, createItem(Material.HOPPER, "&8Item Pickups", 1));
-		inventory.setItem(38, createItem(Material.BONE, "&cDeath Drops", 1));
+		inventory.setItem(38, createItem(Material.BONE, "&7Death Drops", 1));
 		inventory.setItem(39, createItem(Material.COOKED_BEEF, "&6Hunger Depletion", 1));
 		inventory.setItem(40, createItem(Material.POTION, "&dNatural Regeneration", 1));
 		inventory.setItem(41, createItem(Material.GOLDEN_CARROT, "&eStarting Saturation", 1));
@@ -115,7 +107,6 @@ public class ScoresGUI extends DuelGUI {
 		inventory.setItem(44, createItem(Material.IRON_SWORD, "&cAttacking", 1));
 
 		hideFlags();
-
 		setSelected();
 	}
 
@@ -133,6 +124,10 @@ public class ScoresGUI extends DuelGUI {
 			amount = inventory.getItem(slot + 9).getAmount();
 			if (amount == 64) {
 				return;
+			}
+
+			if (amount == 63) {
+				amount = 99;
 			}
 
 			inventory.getItem(slot + 9).setAmount(amount + 1);
@@ -189,7 +184,7 @@ public class ScoresGUI extends DuelGUI {
 				enable(slot, kit.isAttacking());
 				break;
 			}
-		} else {
+		} else if (!name.contains("Required Score")) {
 			ScoreType type = ScoreType.NONE;
 			if (ScoreType.valueOf(rawName(item.getItemMeta().getDisplayName()).toUpperCase()) != null) {
 				type = ScoreType.valueOf(rawName(item.getItemMeta().getDisplayName()).toUpperCase());

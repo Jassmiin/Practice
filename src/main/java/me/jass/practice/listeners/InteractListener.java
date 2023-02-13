@@ -1,9 +1,10 @@
 package me.jass.practice.listeners;
 
-import org.bukkit.Location;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.block.BlockFace;
+import org.bukkit.entity.EnderCrystal;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +13,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 
@@ -99,8 +101,7 @@ public class InteractListener implements Listener {
 		}
 
 		if (event.getMaterial() == Material.END_CRYSTAL && event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getClickedBlock().getType() == Material.OBSIDIAN) {
-			final Location location = event.getClickedBlock().getRelative(BlockFace.UP).getLocation().clone();
-			PracticeAPI.INSTANCE.getDuelManager().addExplosive(location, duel);
+			Bukkit.getScheduler().runTaskLater(PracticeAPI.INSTANCE.getPlugin(), () -> searchForCrystal(player, duel), 1);
 		}
 
 		if (duelist.getScoreType() == ScoreType.BOXING) {
@@ -132,6 +133,15 @@ public class InteractListener implements Listener {
 			}
 
 			player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(attackSpeed);
+		}
+	}
+
+	public void searchForCrystal(final Player player, final Duel duel) {
+		for (final Entity entity : player.getNearbyEntities(4, 4, 4)) {
+			if (entity instanceof EnderCrystal) {
+				entity.setMetadata("duel", new FixedMetadataValue(PracticeAPI.INSTANCE.getPlugin(), duel.getUuid().toString()));
+				duel.addEntity(entity);
+			}
 		}
 	}
 

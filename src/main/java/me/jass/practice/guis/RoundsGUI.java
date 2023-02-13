@@ -55,13 +55,17 @@ public class RoundsGUI extends DuelGUI {
 
 		else if (name.contains("Never Ending")) {
 			selection.setType(RoundType.BEST_OF);
-			selection.setRounds(9999);
+			selection.setRounds(99999);
 		}
 
 		else if (name.contains("More")) {
-			final int amount = inventory.getItem(slot + 9).getAmount();
+			int amount = inventory.getItem(slot + 9).getAmount();
 			if (amount == 64) {
 				return;
+			}
+
+			if (amount == 63) {
+				amount = 99;
 			}
 
 			inventory.getItem(slot + 9).setAmount(amount + 1);
@@ -78,7 +82,7 @@ public class RoundsGUI extends DuelGUI {
 
 		final Goal goal = selection.getGoal();
 
-		if (goal == Goal.DUEL && item.getType() != Material.PLAYER_HEAD) {
+		if (goal == Goal.DUEL && item.getType() != Material.COMPASS && item.getType() != Material.RECOVERY_COMPASS) {
 			selection.sendRequest();
 			close();
 		}

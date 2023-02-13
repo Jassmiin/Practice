@@ -183,7 +183,7 @@ public abstract class DuelGUI {
 	}
 
 	public String centerTitle(String title) {
-		title = ChatColor.stripColor(title);
+		title = ChatColor.stripColor(Text.color(title));
 		final StringBuilder result = new StringBuilder();
 		double length = title.length();
 		for (int i = 0; i < title.length(); i++) {

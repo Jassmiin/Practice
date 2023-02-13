@@ -90,7 +90,7 @@ Already Left: "#redYou already left!"
 Duel Self: "#redYou can't duel yourself goober!"
 Duel Failure: "#redYou can't duel this player at this time!"
 Requests Disabled: "#redThis player has duel requests disabled!"
-Leave Queue: "#7You left the queue!"
+Leave Queue: "&7You left the queue!"
 Already Requested: "#redYou already requested a rematch!"
 
 Duel Start: "%teamA% &7vs %teamB%-ping"
@@ -103,8 +103,8 @@ Duel End: |
 Competitive Duel End: |
   %winners% &7defeated %losers%
   &7Elo: &e%elo% &8(&e%eloDifference%&8)
- 
-Round End: "%roundWinners% &7defeated %roundLosers% %teamAColor%%teamAWins%&7/%teamBColor%%teamBWins%-health"
+
+Round End: "%roundWinners% &7defeated %roundLosers% %teamAColor%%teamAWins%&7/%teamBColor%%teamBWins%-score"
 Score Round End: "&7Score: %teamAColor%%teamAScore%&7/%teamBColor%%teamBScore%"
 
 Countdown Main: "&7Round %round% in %countdown%"

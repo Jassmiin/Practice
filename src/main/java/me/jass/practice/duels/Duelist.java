@@ -5,13 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.DyeColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.Cat;
-import org.bukkit.entity.Cat.Type;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -30,7 +26,6 @@ import me.jass.practice.datatypes.ScoreType;
 import me.jass.practice.datatypes.Team;
 import me.jass.practice.files.Arena;
 import me.jass.practice.files.Kit;
-import me.jass.practice.utils.Text;
 
 @Getter
 public class Duelist {
@@ -90,11 +85,19 @@ public class Duelist {
 	public void increaseScore() {
 		score++;
 		duel.increaseScore(team);
+		duel.displayActionBar();
+		checkScore();
 	}
 
 	public void descreaseScore() {
 		score--;
 		duel.decreaseScore(team);
+	}
+
+	public void checkScore() {
+		if (duel.getScore(team) == kit.getRequiredScore()) {
+			duel.endRound(team);
+		}
 	}
 
 	public int getTeamScore() {
@@ -245,6 +248,8 @@ public class Duelist {
 		player.setUnsaturatedRegenRate(kit.isNaturalRegeneration() ? 80 : 99999);
 		player.setLevel(0);
 		player.setExp(0);
+		player.setArrowsInBody(0);
+		player.setFireTicks(0);
 
 		for (final PotionEffect effect : player.getActivePotionEffects()) {
 			player.removePotionEffect(effect.getType());
@@ -283,18 +288,6 @@ public class Duelist {
 		heal();
 		giveKit();
 		warp(Destination.ARENA);
-
-		if (player.getName().equals("Kylaz")) {
-			final Cat kyla = (Cat) player.getWorld().spawnEntity(player.getLocation(), EntityType.CAT);
-			kyla.setOwner(player);
-			kyla.setCollarColor(DyeColor.RED);
-			kyla.setCatType(Type.WHITE);
-			kyla.setMaxHealth(2048);
-			kyla.setHealth(2048);
-			kyla.setLootTable(null);
-			kyla.setCustomName(Text.color("&ckyla"));
-			duel.addEntity(kyla);
-		}
 	}
 
 	public boolean isQueued() {
@@ -343,6 +336,8 @@ public class Duelist {
 		player.setUnsaturatedRegenRate(0);
 		player.setLevel(0);
 		player.setExp(0);
+		player.setArrowsInBody(0);
+		player.setFireTicks(0);
 	}
 
 	public void disableFlight() {

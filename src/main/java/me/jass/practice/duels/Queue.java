@@ -56,7 +56,7 @@ public class Queue {
 				final int otherRange = PracticeAPI.INSTANCE.getMenuManager().getPingRange(other.getPlayer());
 				final int pingDifference = Math.abs(basePing - otherPing);
 
-				if (pingDifference <= baseRange || baseRange < 0 && pingDifference <= otherRange || otherRange < 0) {
+				if (pingDifference <= baseRange || baseRange == 1 && pingDifference <= otherRange || otherRange == 1) {
 					ready.add(other);
 
 					if (ready.size() == readySize) {

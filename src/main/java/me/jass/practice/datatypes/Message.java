@@ -156,11 +156,16 @@ public enum Message {
 			}
 		}
 
-		if (message.contains("-health")) {
-			message = StringUtils.replaceIgnoreCase(message, "-health", "");
+		if (message.contains("-score")) {
+			message = StringUtils.replaceIgnoreCase(message, "-score", "");
 			for (final Duelist duelist : duel.getDuelists()) {
-				message = StringUtils.replaceIgnoreCase(message, duelist.getPlayer().getName(),
-						duelist.getPlayer().getName() + manager.getSubColor() + " (&c" + duelist.getHealth() + "❤" + manager.getSubColor() + ")");
+				if (duelist.getScoreType() == ScoreType.NONE) {
+					message = StringUtils.replaceIgnoreCase(message, duelist.getPlayer().getName(),
+							duelist.getPlayer().getName() + manager.getSubColor() + " (&c" + duelist.getHealth() + "❤" + manager.getSubColor() + ")");
+				} else {
+					message = StringUtils.replaceIgnoreCase(message, duelist.getPlayer().getName(),
+							duelist.getPlayer().getName() + manager.getSubColor() + " (#aqua" + duelist.getScore() + manager.getSubColor() + ")");
+				}
 			}
 		}
 
@@ -198,7 +203,11 @@ public enum Message {
 		message = StringUtils.replaceIgnoreCase(message, "%kit%", request.getKit().getDisplayName());
 		message = StringUtils.replaceIgnoreCase(message, "%arena%", request.getArena().getDisplayName());
 		message = StringUtils.replaceIgnoreCase(message, "%roundType%", WordUtils.capitalize(request.getType().toString().toLowerCase().replace("_", " ")));
-		message = StringUtils.replaceIgnoreCase(message, "%rounds%", String.valueOf(request.getRounds()));
+		String rounds = String.valueOf(request.getRounds());
+		if (request.getRounds() == 99999) {
+			rounds = "Infinity";
+		}
+		message = StringUtils.replaceIgnoreCase(message, "%rounds%", rounds);
 		message = Text.color(message);
 	}
 

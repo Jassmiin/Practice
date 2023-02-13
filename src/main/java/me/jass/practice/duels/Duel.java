@@ -47,6 +47,8 @@ public class Duel {
 	private int teamBWins = 0;
 	private int teamAScore = 0;
 	private int teamBScore = 0;
+	private final int teamARequiredScore = 0;
+	private final int teamBRequiredScore = 0;
 	private final int size;
 	private int round = 0;
 	private int countdown = 0;
@@ -85,6 +87,7 @@ public class Duel {
 		loadDuel();
 		nextRound();
 		addNameColors();
+		initiateActionBar();
 
 		for (final Duelist duelist : duelists) {
 			Text.tell(duelist.getPlayer(), Message.DUEL_START.formatDuelist(duelist));
@@ -453,10 +456,6 @@ public class Duel {
 	public void clearEntities() {
 		for (final Entity entity : entities) {
 			entity.remove();
-		}
-
-		for (final Duelist duelist : duelists) {
-			duelist.getPlayer().setArrowsInBody(0);
 		}
 	}
 

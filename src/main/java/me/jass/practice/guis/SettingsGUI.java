@@ -111,10 +111,6 @@ public class SettingsGUI extends DuelGUI {
 				inventory.getItem(slot - 9).setAmount(amount - 1);
 			}
 
-			if (amount == 1) {
-				amount = -1;
-			}
-
 			menuManager.setPingRange(player, amount);
 			ding();
 		}
