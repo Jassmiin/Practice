@@ -277,9 +277,9 @@ public class Duel {
 		for (final Duelist duelist : duelists) {
 			duelist.getPlayer().getInventory().clear();
 			if (duelist.isQueued()) {
-				duelist.getPlayer().getInventory().setItem(0, requeue);
+				duelist.getPlayer().getInventory().setItem(4, requeue);
 			} else {
-				duelist.getPlayer().getInventory().setItem(0, rematch);
+				duelist.getPlayer().getInventory().setItem(4, rematch);
 			}
 		}
 
